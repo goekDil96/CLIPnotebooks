@@ -1,0 +1,2 @@
+# CLIPnotebooks
+Playground CLIP
