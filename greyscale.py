@@ -5,10 +5,15 @@ import matplotlib.pyplot as plt
 import open_clip
 import torch
 
+import matplotlib 
+plt.rc('font', family='serif',size=24)
+matplotlib.rc('text', usetex=True)
+matplotlib.rc('legend', fontsize=24)
+matplotlib.rcParams['text.latex.preamble'] = r'\boldmath'
 
 # Load the image
-image_name = "stair_cat"
-image_path = f'source_image/{image_name}.jpeg'  # Change this to the path of your image
+image_name = "sketch_cat"
+image_path = f'source_image/{image_name}.png'  # Change this to the path of your image
 image = cv2.imread(image_path)
 
 # Convert the image to grayscale
@@ -84,7 +89,7 @@ plt.savefig(f"target_images/gauss_{image_name}.png", bbox_inches='tight')
 
 
 # Create a figure and axis
-fig, ax = plt.subplots()
+fig, ax = plt.subplots(figsize=(24,12))
 
 stds = [i for i in range(25, 275, 25)]
 # Plot the lines

@@ -5,6 +5,13 @@ import matplotlib.pyplot as plt
 from PIL import Image
 import numpy as np
 
+import matplotlib 
+plt.rc('font', family='serif',size=16)
+matplotlib.rc('text', usetex=True)
+matplotlib.rc('legend', fontsize=16)
+matplotlib.rcParams['text.latex.preamble'] = r'\usepackage{amsmath} \usepackage{amssymb} \usepackage{xcolor}'
+
+
 image_name= "stair_cat"
 image_path = f"source_image/{image_name}.jpeg"  # Change this to your local image path
 if image_name == "butty":

@@ -2,6 +2,12 @@ import matplotlib.pyplot as plt
 import numpy as np
 from matplotlib.patches import Arc
 
+import matplotlib 
+plt.rc('font', family='serif',size=24)
+matplotlib.rc('text', usetex=True)
+matplotlib.rc('legend', fontsize=24)
+matplotlib.rcParams['text.latex.preamble'] = r'\boldmath'
+
 # Define three sets of vectors with different angles
 vectors = [
     (np.array([3, 4]), np.array([1.5, 2]), np.array([0.0000000001, 0])),
@@ -10,7 +16,7 @@ vectors = [
 ]
 
 # Create a figure with three subplots
-fig, axes = plt.subplots(1, 3, figsize=(15, 5))
+fig, axes = plt.subplots(1, 3, figsize=(20, 7))
 
 for ax, (A, B, C) in zip(axes, vectors):
     # Calculate cosine similarity and angle
@@ -30,7 +36,7 @@ for ax, (A, B, C) in zip(axes, vectors):
     ax.set_yticks(np.arange(0, 6, 1))
     ax.set_xlabel('X')
     ax.set_ylabel('Y')
-    ax.set_title(f'Angle between vectors θ = {angle_rad:.2f}\ncos(θ) = {cosine_similarity:.2f}')
+    ax.set_title(f'Angle between vectors theta = {angle_rad:.2f}\ncos(theta) = {cosine_similarity:.2f}')
 
     # Add grid
     ax.grid(True)
@@ -38,4 +44,6 @@ for ax, (A, B, C) in zip(axes, vectors):
 
 # Adjust layout
 plt.tight_layout()
+# Save the figure
+plt.savefig("target_images/cosine_sim.png", bbox_inches='tight')
 plt.show()

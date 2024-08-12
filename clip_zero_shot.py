@@ -7,8 +7,14 @@ from PIL import Image
 import numpy as np
 from torchvision.datasets import CIFAR100, CIFAR10
 
-image_name= "shadow_of_cats"
-image_path = f"source_image/{image_name}.jpeg"  # Change this to your local image path
+import matplotlib 
+plt.rc('font', family='serif',size=16)
+matplotlib.rc('text', usetex=True)
+matplotlib.rc('legend', fontsize=16)
+matplotlib.rcParams['text.latex.preamble'] = r'\usepackage{amsmath} \usepackage{amssymb} \usepackage{xcolor}'
+
+image_name= "drawn_cat_1"
+image_path = f"source_image/{image_name}.png"  # Change this to your local image path
 
 model, _, preprocess = open_clip.create_model_and_transforms('ViT-B-32', pretrained='laion2b_s34b_b79k')
 model.eval()  # model in train mode by default, impacts some models with BatchNorm or stochastic depth active
